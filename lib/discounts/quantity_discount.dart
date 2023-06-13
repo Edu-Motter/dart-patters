@@ -7,11 +7,8 @@ class QuantityDiscount extends Discount {
   }
 
   @override
-  int calculate(Budget budget) {
-    if (budget.itemsQuantity > 5) {
-      return (budget.valueInCents * 0.05).round();
-    }
+  int calculateDiscount(Budget budget) => (budget.valueInCents * 0.05).round();
 
-    return super.next!.calculate(budget);
-  }
+  @override
+  bool willApplyDiscount(Budget budget) => budget.itemsQuantity > 5;
 }

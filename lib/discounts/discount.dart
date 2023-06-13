@@ -5,5 +5,15 @@ abstract class Discount {
 
   Discount({this.next});
 
-  int calculate(Budget budget);
+  int calculate(Budget budget) {
+    if (willApplyDiscount(budget)) {
+      return calculateDiscount(budget);
+    }
+
+    return next!.calculate(budget);
+  }
+
+  bool willApplyDiscount(Budget budget);
+
+  int calculateDiscount(Budget budget);
 }

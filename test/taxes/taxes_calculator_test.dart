@@ -6,14 +6,14 @@ import 'package:test/test.dart';
 
 void main() {
   test('taxes calculator type = ISS must return 6% of the value', () {
-    Budget budget = Budget(valueInCents: 10000);
+    Budget budget = Budget(valueInCents: 10000, itemsQuantity: 1);
     TaxesCalculator calculator = TaxesCalculator();
     final int tax = calculator.calculate(budget, IssTax());
     assert(tax == 600);
   });
 
   test('taxes calculator type = ICMS must return 10% of the value', () {
-    Budget budget = Budget(valueInCents: 10000);
+    Budget budget = Budget(valueInCents: 10000, itemsQuantity: 1);
     TaxesCalculator calculator = TaxesCalculator();
     final int tax = calculator.calculate(budget, IcmsTax());
     assert(tax == 1000);

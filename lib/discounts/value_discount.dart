@@ -7,11 +7,8 @@ class ValueDiscount extends Discount {
   }
 
   @override
-  int calculate(Budget budget) {
-    if (budget.valueInCents > 50000) {
-      return (budget.valueInCents * 0.10).round();
-    }
+  int calculateDiscount(Budget budget) => (budget.valueInCents * 0.10).round();
 
-    return super.next!.calculate(budget);
-  }
+  @override
+  bool willApplyDiscount(Budget budget) => budget.valueInCents > 50000;
 }

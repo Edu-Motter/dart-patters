@@ -5,5 +5,8 @@ class NoDiscount extends Discount {
   NoDiscount();
 
   @override
-  int calculate(Budget budget) => 0;
+  int calculateDiscount(Budget budget) => 0;
+
+  @override
+  bool willApplyDiscount(Budget budget) => true;
 }
